@@ -16,7 +16,7 @@ Small collection of example Python scripts that demonstrate core Python concepts
 ## Requirements
 
 - Python 3.8+ (3.10/3.11 recommended)
-- `pytest` (only needed to run `test.py`)
+- `pytest` (needed to run the local and API test suites)
 
 ## Quick start
 
@@ -31,9 +31,19 @@ python3 functions.py
 Run tests (install `pytest` first):
 
 ```bash
-python3 -m pip install --user pytest
-python3 -m pytest test.py -q
+python3 -m pip install -r requirements-dev.txt
+python3 -m pytest python/test.py -q
 ```
+
+Run the Petstore API tests:
+
+```bash
+python3 -m pytest tests/api_petstore -q
+```
+
+The Petstore suite uses the public Swagger Petstore service at
+`https://petstore.swagger.io/v2`, so those tests require network access and can
+reflect temporary state or availability issues in that shared demo API.
 
 ## Notes
 
@@ -47,4 +57,3 @@ Feel free to open issues or submit pull requests with improvements, additional e
 ---
 
 Generated on March 13, 2026.
-
